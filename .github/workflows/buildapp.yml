@@ -132,9 +132,6 @@ jobs:
           echo "==> YouTube v$youtube_version downloaded!"
           sed -i '' "17s#.*#YOUTUBE_VERSION = ${youtube_version}#g" Makefile
           echo "youtube_version=${youtube_version}" >> $GITHUB_OUTPUT
-          find "$(pwd)/Payload" -name "*.appex" -exec rm -rf {} + 2>/dev/null || true
-          find "$(pwd)/Payload" -name "PlugIns" -exec rm -rf {} + 2>/dev/null || true
-          echo "==> Extensions removed: $(find $(pwd)/Payload -name '*.appex' | wc -l) remaining"
 
         env:
           THEOS: ${{ github.workspace }}/theos
